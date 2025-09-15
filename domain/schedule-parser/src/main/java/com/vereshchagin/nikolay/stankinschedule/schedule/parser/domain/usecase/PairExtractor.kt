@@ -117,8 +117,8 @@ class PairExtractor {
     private fun extractType(type: String): Type {
         return when (type.dropLast(1).trim().lowercase()) {
             "семинар" -> Type.SEMINAR
-            "лекции" -> Type.LECTURE
-            "лабораторные занятия" -> Type.LABORATORY
+            "лекция" -> Type.LECTURE
+            "лабораторная" -> Type.LABORATORY
             else -> throw IllegalArgumentException("Unknown type: '$type'")
         }
     }
@@ -190,7 +190,7 @@ class PairExtractor {
 
         const val Title = "([а-яА-ЯёЁa-zA-Z0-9\\.\\s\\,\\-\\(\\)\\/\\:]+?\\.)"
         const val Lecturer = "([а-яА-ЯёЁae\\s\\_]+\\s([а-яА-я]\\.?){1,2})?"
-        const val Type = "((лабораторные занятия|семинар|лекции)?\\.)"
+        const val Type = "((Лабораторная|Семинар|Лекция)\\.?)?"
         const val Subgroup = "(\\([абАБ]\\)\\.)?"
         const val Classroom = "([^\\[\\]]+?\\.)"
         const val Date =
